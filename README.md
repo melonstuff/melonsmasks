@@ -1,4 +1,6 @@
-<p align="center"><img src="https://i.imgur.com/vdmnwxI.gif"/></p>
+###### wait for it...
+
+<p align="center"><img src="assets/melonsmasks.gif"/></p>
 Melon's Masks is a modern, render-target based masking system that is fast, powerful and excrutiatingly easy to use. Plus it works in 3D2D, and on 3D objects!
 
 # Installation
@@ -72,6 +74,7 @@ masks.End()
 
 # Gradient Text Example
 This shows how to render text that is displayed as a gradient
+
 <img src="https://i.imgur.com/gsFm6eN.png"/>
 
 ```lua
