@@ -165,7 +165,6 @@ function masks.EndToTexture(texture, kind)
     render.CopyTexture(masks.dest.rt, texture)
 end
 
-
 ---
 --- Examples
 --- These depend on melonlib being installed

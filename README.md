@@ -33,6 +33,9 @@ Melon's Masks is a modern, render-target based masking system that is fast, powe
 > Stops the render of the thing doing the cutting, applies it according to the kind, and renders the finished mask  
 > Kind defaults to `masks.KIND_CUT`
 
+> `masks.EndToTexture(ITexture, masks.KIND_?)`
+> Identical to `masks.End`, except renders the mask to a texture (does not clear the texture before hand!)
+
 # Common Issues
 - Remember that this is pushing render targets, you need to do any rendertarget processing before the mask renders.
 
