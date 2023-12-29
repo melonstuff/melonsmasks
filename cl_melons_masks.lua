@@ -136,6 +136,36 @@ function masks.End(kind)
     surface.DrawTexturedRect(0, 0, ScrW(), ScrH())
 end
 
+----
+---@name masks.EndToTexture
+----
+---@arg (tex:     ITexture)
+---@arg (kind: masks.KIND_) The kind of mask this is, remember this is not a number enum
+----
+---- Stops the source render and renders everything to the given ITexture
+----
+function masks.EndToTexture(texture, kind)
+    kind = kind or masks.KIND_CUT
+
+    cam.End2D()
+    render.PopRenderTarget()
+
+    render.PushRenderTarget(masks.dest.rt)
+    cam.Start2D()
+        render.OverrideBlend(true,
+            kind[1], kind[2], kind[3]
+        )
+        surface.SetDrawColor(255, 255, 255)
+        surface.SetMaterial(masks.source.mat)
+        surface.DrawTexturedRect(0, 0, ScrW(), ScrH())
+        render.OverrideBlend(false)
+    cam.End2D()
+    render.PopRenderTarget()
+
+    render.CopyTexture(masks.dest.rt, texture)
+end
+
+
 ---
 --- Examples
 --- These depend on melonlib being installed
@@ -329,30 +359,5 @@ end )
 ---
 --- End of examples
 ---
-
----
---- Note for myself
---- Screenshots are 251x251, make sure theyre all from the same spot
---- Do this with:
----
---- RENDERS = RENDERS or {}
---- function __render_melons_masks_(name)
----     if RENDERS[name] then
----         return
----     end
----
----     RENDERS[name] = true
----
----     local data = render.Capture({
----         format = "png",
----         x = 0,
----         y = 0,
----         w = 251,
----         h = 251,
----     })
----
----     file.Write("melon/masks_render_" .. name .. ".png", data)
---- end
-
 
 return masks
