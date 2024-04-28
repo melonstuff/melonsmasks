@@ -29,9 +29,12 @@ Melon's Masks is a modern, render-target based masking system that is fast, powe
 > > This MUST be called after `masks.Source`, just like `masks.End`  
 > > You MUST provide a kind, unlike `masks.End`
 
-> `masks.End(masks.KIND_?)`  
+> `masks.End(masks.KIND_?, x: number?, y: number?, w: number?, h: number?)`  
 > Stops the render of the thing doing the cutting, applies it according to the kind, and renders the finished mask  
 > Kind defaults to `masks.KIND_CUT`
+>
+> `x, y` are for negative panel bounds, they default to `0, 0`
+> `w, h` should never be used realistically
 
 > `masks.EndToTexture(ITexture, masks.KIND_?)`
 > Identical to `masks.End`, except renders the mask to a texture (does not clear the texture before hand!)
