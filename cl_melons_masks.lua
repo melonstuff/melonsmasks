@@ -39,7 +39,7 @@ masks.dest.mat    = CreateMaterial("MelonMasks_Destination", "UnlitGeneric", {
 
 ----
 ---@enumeration
----@name masks.KIND
+---@name masks.KIND_
 ----
 ---@enum (CUT)   Cuts the source out of the destination
 ---@enum (STAMP) Cuts the destination out of the source
@@ -51,7 +51,6 @@ masks.KIND_STAMP = {BLEND_ZERO, BLEND_ONE_MINUS_SRC_ALPHA, BLENDFUNC_ADD}
 
 ----
 ---@name masks.Start
-----
 ----
 ---- Starts the mask destination render
 ---- Whats between this and the `masks.Source` call is the destination
